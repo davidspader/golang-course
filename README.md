@@ -1,3 +1,3 @@
-# golang-course
+# Golang Course
 
-Course: https://www.youtube.com/playlist?list=PLCKpcjBB_VlBsxJ9IseNxFllf-UFEXOdg
+This repository is for Golang studies.
