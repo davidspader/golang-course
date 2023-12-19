@@ -32,4 +32,23 @@ func main() {
 
 	array2[1] = "Posição alterada"
 	fmt.Println(slice2)
+
+	//ARRAYS INTERNOS
+	slice3 := make([]float32, 10, 11)
+	fmt.Println(slice3)
+	fmt.Println(len(slice3))
+	fmt.Println(cap(slice3))
+
+	slice3 = append(slice3, 5)
+	slice3 = append(slice3, 6)
+
+	fmt.Println(slice3)
+	fmt.Println(len(slice3))
+	fmt.Println(cap(slice3))
+
+	slice4 := make([]float32, 5)
+	fmt.Println(slice4)
+	slice3 = append(slice4, 12)
+	fmt.Println(len(slice3))
+	fmt.Println(cap(slice3))
 }
