@@ -3,15 +3,27 @@ package main
 import (
 	"log"
 	"net/http"
+	"text/template"
 )
 
-func main() {
+var templates *template.Template
 
-	http.HandleFunc("/home", home)
-
-	log.Fatal(http.ListenAndServe(":5000", nil))
+type usuario struct {
+	Nome  string
+	Email string
 }
 
-func home(w http.ResponseWriter, r *http.Request) {
-	w.Write([]byte("Olá Mundo!"))
+func main() {
+	templates = template.Must(template.ParseGlob("*.html"))
+
+	http.HandleFunc("/home", func(w http.ResponseWriter, r *http.Request) {
+		u := usuario{
+			"David",
+			"david@gmail.com",
+		}
+
+		templates.ExecuteTemplate(w, "home.html", u)
+	})
+
+	log.Fatal(http.ListenAndServe(":5000", nil))
 }
